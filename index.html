@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llayza Mota | Influencer & Pedagoga</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <style>
+        :root {
+            --gold: #FFD700;
+            --pink: #F12D92;
+            --dark-bg: #0a0a0a;
+            --glass: rgba(255, 255, 255, 0.1);
+            --text-light: #f4f4f4;
+        }
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+
+    background: 
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("fundo2.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    width: 50%;
+}
+
+.hero-image {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: 0 0 40px rgba(241, 45, 146, 0.3);
+}
+
+.hero-image img:hover {
+    transform: scale(1.03);
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+
+    /* ================= NAV PREMIUM ================= */
+
+    nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(241, 45, 146, 0.3);
+}
+
+nav::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    pointer-events: none;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    animation: shine 4s infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+/* Logo luxuosa */
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: white;
+    transition: 0.4s;
+}
+
+.logo:hover {
+    color: #F12D92;
+    text-shadow: 0 0 25px rgba(241,45,146,0.9);
+    transform: scale(1.05);
+}
+
+/* Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 45px;
+}
+
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+
+/* Linha animada deslizante */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #F12D92, transparent);
+    transition: 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover {
+    color: #F12D92;
+    transform: translateY(-3px);
+}
+
+.nav-links a:hover::after {
+    width: 120%;
+}
+
+/* Glow suave ao passar o mouse */
+.nav-links a:hover {
+    text-shadow: 0 0 15px rgba(241,45,146,0.8);
+}
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            border-left: 3px solid var(--pink);
+            padding-left: 20px;
+        }
+
+        .btn-glow {
+            padding: 15px 40px;
+            background: var(--pink);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 0 20px rgba(241, 45, 146, 0.4);
+            transition: 0.4s;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 40px rgba(241, 45, 146, 0.7);
+            background: var(--gold);
+        }
+
+        /* --- Experience Section (Cards) --- */
+        .experience {
+            padding: 100px 10%;
+            background: #0f0f0f;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 60px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--glass);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.5s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        /* --- Galeria --- */
+        .gallery {
+            padding: 100px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            transition: 0.6s;
+        }
+
+        .gallery-item:hover {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 50px 10%;
+            text-align: center;
+            border-top: 1px solid var(--glass);
+        }
+
+        .social-icons {
+            margin: 20px 0;
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a { color: white; transition: 0.3s; }
+        .social-icons a:hover { color: var(--gold); }
+
+        /* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+    /* NAV */
+    nav {
+        padding: 15px 6%;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+    }
+
+    /* HERO */
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 120px 6% 60px 6%;
+        height: auto;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        border-left: none;
+        padding-left: 0;
+        margin: 20px auto;
+        max-width: 90%;
+    }
+
+    .hero-image {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .hero-image img {
+        max-width: 280px;
+    }
+
+    .btn-glow {
+        padding: 14px 30px;
+        font-size: 0.85rem;
+    }
+
+    /* CARDS */
+    .experience {
+        padding: 70px 6%;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    /* GALERIA */
+    .gallery {
+        padding: 70px 6%;
+    }
+
+    .gallery-item {
+        height: 300px;
+    }
+
+}
+
+/* ================= CUPONS ================= */
+
+/* ================= CUPONS PREMIUM ================= */
+
+.coupons {
+    padding: 120px 10%;
+    background: linear-gradient(180deg, #0f0f0f, #0a0a0a);
+    text-align: center;
+    position: relative;
+}
+
+.coupon-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+.coupon-card {
+    width: 320px;
+    padding: 50px 40px;
+    border-radius: 25px;
+    position: relative;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.4s ease;
+    overflow: hidden;
+}
+
+/* Glow animado suave */
+.coupon-card::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(circle, rgba(241,45,146,0.15), transparent 60%);
+    transition: 0.6s;
+    pointer-events: none; /* ✅ AQUI SIM */
+}
+
+.coupon-card:hover {
+    transform: translateY(-10px);
+    border: 1px solid rgba(53, 4, 29, 0.5);
+    box-shadow: 0 0 40px rgba(247, 61, 157, 0.2);
+}
+
+.coupon-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+/* Código elegante */
+.coupon-code {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 18px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, var(--pink), var(--gold));
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.coupon-code:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px rgba(241,45,146,0.6);
+}
+
+/* Texto pequeno */
+.coupon-card p {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    
+}
+
+@media (max-width: 768px) {
+    .coupon-container {
+        gap: 30px;
+    }
+
+    .coupon-card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* Botão ir para site */
+.coupon-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: 0.3s ease;
+}
+
+.coupon-link:hover {
+    background: var(--pink);
+    border-color: var(--pink);
+    box-shadow: 0 0 20px rgba(241,45,146,0.5);
+    transform: translateY(-3px);
+}
+
+
+.about {
+    padding: 100px 10%;
+    background: linear-gradient(180deg, #0a0a0a, #111);
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 25px;
+    box-shadow: 0 0 60px rgba(241, 45, 146, 0.3);
+}
+
+.about-content {
+    max-width: 500px;
+}
+
+.about-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #F12D92, #FFD700);
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.about-content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.about-stats {
+    display: flex;
+    gap: 40px;
+}
+
+.about-stats h3 {
+    font-size: 24px;
+    color: #F12D92;
+}
+
+.about-stats span {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-stats {
+        justify-content: center;
+    }
+}
+
+footer {
+    padding: 40px 10%;
+    text-align: center;
+    background: #0a0a0a;
+    color: #aaa;
+    font-size: 14px;
+}
+
+footer a {
+    color: #F12D92;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: #FFD700;
+}
+
+
+.experience {
+    padding: 100px 10%;
+  background: 
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("fundo7.jpg");
+    background-size: cover;      /* cobre tudo */
+    background-position: center; /* centraliza */
+    background-repeat: no-repeat;
+
+    color: white; /* importante se o fundo for escuro */
+}
+
+.gallery {
+    padding: 100px 10%;
+
+    background: 
+        linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+        url("fundo4.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
+.coupons {
+    padding: 100px 10%;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+        url("fundo5.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
+@media (max-width: 768px) {
+
+    /* NAV */
+    nav {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+
+    /* HERO */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 140px 5% 80px 5%;
+        height: auto;
+        gap: 40px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+        border-left: none;
+        padding-left: 0;
+        max-width: 95%;
+        margin: 20px auto;
+    }
+
+    .hero-image {
+        width: 100%;
+    }
+
+    .hero-image img {
+        max-width: 250px;
+    }
+
+    .btn-glow {
+        padding: 12px 26px;
+        font-size: 0.8rem;
+    }
+
+    /* ABOUT */
+    .about {
+        padding: 80px 5%;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .about-image img {
+        max-width: 280px;
+    }
+
+    .about-content {
+        max-width: 100%;
+    }
+
+    .about-stats {
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    /* EXPERIENCE */
+    .experience {
+        padding: 80px 5%;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    /* GALLERY */
+    .gallery {
+        padding: 80px 5%;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .gallery-item {
+        height: 220px;
+    }
+
+    /* COUPONS */
+    .coupons {
+        padding: 80px 5%;
+    }
+
+    .coupon-container {
+        gap: 30px;
+    }
+
+    .coupon-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 35px 25px;
+    }
+
+    .coupon-code {
+        font-size: 1.1rem;
+        padding: 15px;
+    }
+
+    /* FOOTER */
+    footer {
+        padding: 30px 5%;
+        font-size: 12px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">LAYZA MOTA</div>
+        <ul class="nav-links">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#experience">Atuação</a></li>
+            <li><a href="#coupons">Cupons</a></li>
+        </ul>
+    </nav>
+
+
+    <section class="hero" id="home">
+
+    <div class="hero-content">
+        <h1 id="hero-title">Inteligência <br> & Estilo.</h1>
+        <p>Unindo o universo da pedagogia com o poder do autocuidado e lifestyle. Viva sua melhor versão todos os dias.</p>
+        <a href="https://www.instagram.com/llayza.mota" class="btn-glow">CONHECER TRABALHO</a>
+    </div>
+
+    <div class="hero-image">
+        <img id="hero-photo" src="sua-foto-principal.jpeg" alt="Llayza Mota">
+    </div>
+
+</section>
+
+<section class="about" id="about">
+    <div class="about-container">
+        
+        <div class="about-image">
+            <img src="ela1.jpeg" alt="Layza Mota">
+        </div>
+
+        <div class="about-content">
+            <span class="about-badge">SOBRE LAYZA</span>
+            <h2>Beleza, confiança e autenticidade</h2>
+            <p>
+                Layza Mota, 19 anos, cristã, é estudante do curso de Pedagogia. Atualmente atua como estagiária na Clínica CETI, em Paulínia, e exerce a função de Acompanhante Terapêutica de uma criança com Transtorno do Espectro Autista em uma escola particular no município de Valinhos.
+<br><br>
+                Além de sua atuação profissional, participa de uma associação beneficente, desenvolvendo ações sociais voltadas à população em situação de vulnerabilidade, incluindo projetos e viagens missionárias para comunidades ribeirinhas.
+            </p>
+
+            <div class="about-stats">
+                <div>
+                    <h3>+1500</h3>
+                    <span>Seguidores</span>
+                </div>
+                <div>
+                    <h3>+2</h3>
+                    <span>Parcerias</span>
+                </div>
+                <div>
+                    <h3>100%</h3>
+                    <span>Autenticidade</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+    <section class="experience" id="experience">
+        <h2 class="section-title">Minha Atuação</h2>
+        <div class="cards-container">
+            <div class="card reveal">
+                <i class="fas fa-book-open"></i>
+                <h3>Educação Infantil</h3>
+                <p>No <b>@lm.pedago</b>, transformo a teoria acadêmica em práticas lúdicas e inspiradoras para educadores.</p>
+            </div>
+            <div class="card reveal" style="transition-delay: 0.2s;">
+                <i class="fas fa-magic"></i>
+                <h3>Lifestyle & Beauty</h3>
+                <p>Moda, beleza e rotina. No <b>@llayza.mota</b>, mostro que o autocuidado é a chave para a autoconfiança.</p>
+            </div>
+            <div class="card reveal" style="transition-delay: 0.4s;">
+                <i class="fas fa-camera"></i>
+                <h3>Criação de Conteúdo</h3>
+                <p>Parcerias com marcas de renome (UAU Box, Skence) gerando engajamento real e estético.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <div class="gallery-item reveal" style="background-image: url('produtos4.jpeg');"></div>
+        <div class="gallery-item reveal" style="background-image: url('produtos1.jpeg');"></div>
+        <div class="gallery-item reveal" style="background-image: url('produtos3.jpeg');"></div>
+        <div class="gallery-item reveal" style="background-image: url('produtos.jpeg');"></div>
+        <div class="gallery-item reveal" style="background-image: url('uau.jpeg');"></div>
+        <div class="gallery-item reveal" style="background-image: url('produto5.jpeg');"></div>
+        <div class="gallery-item reveal" style="background-image: url('produto6.jpeg');"></div>
+        <div class="gallery-item reveal" style="background-image: url('produto8.jpeg');"></div>
+        <div class="gallery-item reveal" style="background-image: url('produto9.jpeg');"></div>
+        <div class="gallery-item reveal" style="background-image: url('produto10.jpeg');"></div>
+    </section>
+
+<section class="coupons" id="coupons">
+    <h2 class="section-title">Cupons Exclusivos</h2>
+
+    <div class="coupon-container">
+
+    <div class="coupon-card">
+    <h3>UAU BOX</h3>
+
+    <div class="coupon-code" onclick="copyCoupon('LAYZAM')">
+        LAYZAM
+    </div>
+
+    <a href="https://www.uaubox.com.br" target="_blank" class="coupon-link">
+        IR PARA O SITE
+    </a>
+
+    <p>Toque para copiar e usar no site oficial</p>
+</div>
+
+
+<div class="coupon-card">
+    <h3>SKENCE</h3>
+
+    <div class="coupon-code" onclick="copyCoupon('LAYZAMOTA')">
+        LAYZAMOTA
+    </div>
+
+    <a href="https://skence.com.br/" target="_blank" class="coupon-link">
+        IR PARA O SITE
+    </a>
+
+    <p>Toque para copiar e usar no site oficial</p>
+</div>
+</section>
+   <footer>
+    <p>Llayza Mota © 2026 - Todos os direitos reservados</p>
+    <p>
+        Desenvolvido por 
+        <a href="https://steppage.vercel.app/" target="_blank">StepPage</a>
+    </p>
+</footer>
+
+    <script>
+
+        // 2. Animações GSAP (Entrada Hero)
+        gsap.from("#hero-title", {
+            duration: 1.5,
+            y: 100,
+            opacity: 0,
+            ease: "power4.out",
+            delay: 0.5
+        });
+
+        gsap.from(".hero-content p", {
+            duration: 1.2,
+            x: -50,
+            opacity: 0,
+            delay: 1
+        });
+
+        // 3. Scroll Reveal (Surgimento suave)
+        ScrollReveal().reveal('.reveal', {
+            distance: '50px',
+            duration: 1000,
+            easing: 'ease-in-out',
+            origin: 'bottom',
+            interval: 200
+        });
+
+        // 4. Efeito de Escrita no Título
+        // (Aqui entra a parte que aumenta a complexidade do código)
+        const textElement = document.getElementById('hero-title');
+
+        const heroPhoto = document.getElementById("hero-photo");
+
+let currentImage = 1;
+
+heroPhoto.addEventListener("click", () => {
+    if (currentImage === 1) {
+        heroPhoto.src = "foto-depois.jpeg";
+        currentImage = 2;
+    } else {
+        heroPhoto.src = "sua-foto-principal.jpeg";
+        currentImage = 1;
+    }
+});
+
+function copyCoupon(code) {
+    navigator.clipboard.writeText(code);
+    alert("Cupom " + code + " copiado!");
+}
+
+    </script>
+</body>
+</html>
